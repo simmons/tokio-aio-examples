@@ -1,0 +1,77 @@
+[package]
+name = "tokio-aio-examples"
+version = "0.1.0"
+authors = ["David Simmons <simmons@davidsimmons.com>"]
+
+[features]
+select = [ "nix" ]
+epoll = [ "nix" ]
+
+[lib]
+name = "tokio_aio_examples"
+path = "src/lib.rs"
+
+[[bin]]
+name = "echo-select"
+path = "src/bin/echo-select.rs"
+required-features = [ "select" ]
+
+[[bin]]
+name = "echo-epoll-level"
+path = "src/bin/echo-epoll-level.rs"
+required-features = [ "epoll" ]
+
+[[bin]]
+name = "echo-epoll-edge"
+path = "src/bin/echo-epoll-edge.rs"
+required-features = [ "epoll" ]
+
+[[bin]]
+name = "echo-mio-level"
+path = "src/bin/echo-mio-level.rs"
+
+[[bin]]
+name = "echo-mio-edge"
+path = "src/bin/echo-mio-edge.rs"
+
+[[bin]]
+name = "echo-tokio"
+path = "src/bin/echo-tokio.rs"
+
+[[bin]]
+name = "echo-tokio-mpsc"
+path = "src/bin/echo-tokio-mpsc.rs"
+
+[[bin]]
+name = "future-notify"
+path = "src/bin/future-notify.rs"
+
+[[bin]]
+name = "mio-empty"
+path = "src/bin/mio-empty.rs"
+
+[[bin]]
+name = "mio-mixed"
+path = "src/bin/mio-mixed.rs"
+
+[[bin]]
+name = "mio-pipe"
+path = "src/bin/mio-pipe.rs"
+
+[[bin]]
+name = "tokio-multisocket-join"
+path = "src/bin/tokio-multisocket-join.rs"
+
+[[bin]]
+name = "tokio-multisocket-spawn"
+path = "src/bin/tokio-multisocket-spawn.rs"
+
+[[bin]]
+name = "tokio-multisocket-futuresunordered"
+path = "src/bin/tokio-multisocket-futuresunordered.rs"
+
+[dependencies]
+nix = { version = "0.9.0", optional = true }
+mio = "0.6.10"
+futures = "0.1.17"
+tokio-core = "0.1.10"
